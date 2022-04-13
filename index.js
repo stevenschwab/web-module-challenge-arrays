@@ -46,10 +46,10 @@ Use the copy function below to do the following:
 */
 
 
-function copy(/*your code here*/){
-  /*your code here*/
+function copy(arr){
+  return arr;
 }
-
+console.log(copy(originalFlavors));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -63,10 +63,11 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
-  /*your code here*/
+function is31Flavors(arr){
+  if(arr.length === 31) return true;
+  return false;
  }
-
+console.log(is31Flavors(originalFlavors));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -82,10 +83,11 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
-  /*your code here*/
+function addFlavor(arr, aString){
+  arr.unshift(aString);
+  return arr;
  }
-
+console.log(addFlavor(originalFlavors, "Rainbow Sherbert"));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -100,10 +102,11 @@ Use the removeLastFlavor function below to do the following:
 */
 
 
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+function removeLastFlavor(arr){
+ arr.pop();
+ return arr;
 }
-
+console.log(removeLastFlavor(originalFlavors));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -118,10 +121,10 @@ Use the getFlavorByIndex function below to do the following:
 */
 
 
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+function getFlavorByIndex(arr, aNumber){
+  return arr[aNumber];
 }
-
+console.log(getFlavorByIndex(originalFlavors, 2));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -138,10 +141,11 @@ Use the removeFlavorByName function below to do the following:
   HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-  /*your code here*/
+function removeFlavorByName(arr, aString){
+  arr.splice(arr.indexOf(aString), 1);
+  return arr;
 }
-
+console.log(removeFlavorByName(originalFlavors, "Rocky Road"));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -163,10 +167,14 @@ Use the filterByWord function below to do the following:
 */
 
 
-function filterByWord(/*your code here*/){
-  /*your code here*/
+function filterByWord(anArray, aString){
+  let newArray = [];
+  for(let i = 0; i < anArray.length; i++) {
+    if(anArray[i].includes(aString)) newArray.push(anArray[i]);
+  }
+  return newArray;
 }
-
+console.log(filterByWord(originalFlavors, "Chocolate"));
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
@@ -181,9 +189,14 @@ Use the getAverageWordLength function below to do the following:
   For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-  /*code here*/
+function getAverageWordLength(anArray){
+  let sum = 0;
+  for(let i = 0; i < anArray.length; i++) {
+    sum = sum + anArray[i].split(" ").length;
+  }
+  return sum / anArray.length;
 }
+console.log(getAverageWordLength(originalFlavors));
 
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
@@ -198,91 +211,100 @@ Use the getRandomFlavors function and new arrays below to do the following:
   For example: getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].
 */
 
-
-function getRandomFlavors(/*code here*/){
-  /*code here*/
-}
-
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
-// const newFlavors = [
-//   "Date night",
-//   "U.S.S Butterscotch (Stranger Things special)",
-//   "Honey Almond",
-//   "Mint Chocolate Chip",
-//   "Chocolate",
-//   "Oreo® Cookies'n Cream",
-//   "Chocolate Chip",
-//   "Pralines 'n Cream",
-//   "Very Berry Strawberry",
-//   "Chocolate Chip Cookie Dough",
-//   "Old Fashioned Butter Pecan",
-//   "Jamoca®",
-//   "Jamoca® Almond Fudge",
-//   "Reese's® Peanut Butter Cup",
-//   "Rocky Road",
-//   "Peanut Butter ’n Chocolate",
-//   "Gold Medal Ribbon®",
-//   "World Class® Chocolate",
-//   "Cherries Jubilee",
-//   "Chocolate Fudge",
-//   "Daiquiri Ice",
-//   "Rainbow Sherbet",
-//   "Rainbow Swirl"
-// ] 
+const newFlavors = [
+  "Date night",
+  "U.S.S Butterscotch (Stranger Things special)",
+  "Honey Almond",
+  "Mint Chocolate Chip",
+  "Chocolate",
+  "Oreo® Cookies'n Cream",
+  "Chocolate Chip",
+  "Pralines 'n Cream",
+  "Very Berry Strawberry",
+  "Chocolate Chip Cookie Dough",
+  "Old Fashioned Butter Pecan",
+  "Jamoca®",
+  "Jamoca® Almond Fudge",
+  "Reese's® Peanut Butter Cup",
+  "Rocky Road",
+  "Peanut Butter ’n Chocolate",
+  "Gold Medal Ribbon®",
+  "World Class® Chocolate",
+  "Cherries Jubilee",
+  "Chocolate Fudge",
+  "Daiquiri Ice",
+  "Rainbow Sherbet",
+  "Rainbow Swirl"
+] 
 
-// const seasonalFlavors = [
-//   "America's Birthday Cake",
-//   "Baseball Nut®",
-//   "Blueberry Cheesecake",
-//   "Bourbon Street Pecan Pie",
-//   "Brownie Bar Mashup",
-//   "Cherry Cordial with Kisses",
-//   "Chocolate Mousse Royale",
-//   "French Vanilla",
-//   "Eggnog",
-//   "German Chocolate Cake",
-//   "Icing on the Cake",
-//   "Love Potion #31",
-//   "New York Cheesecake",
-//   "Nutty Coconut",
-//   "Peppermint",
-//   "Strawberry Cheesecake",
-//   "Rock ’n Pop Swirl",
-//   "Reese’s Peanut Butter Cup",
-//   "Trick Oreo Treat",
-//   "Winter White Chocolate",
-//   "made with Snickers®",
-//   "made with M&M's®",
-//   "Heath®",
-//   "Mango Tango"
-// ]
+const seasonalFlavors = [
+  "America's Birthday Cake",
+  "Baseball Nut®",
+  "Blueberry Cheesecake",
+  "Bourbon Street Pecan Pie",
+  "Brownie Bar Mashup",
+  "Cherry Cordial with Kisses",
+  "Chocolate Mousse Royale",
+  "French Vanilla",
+  "Eggnog",
+  "German Chocolate Cake",
+  "Icing on the Cake",
+  "Love Potion #31",
+  "New York Cheesecake",
+  "Nutty Coconut",
+  "Peppermint",
+  "Strawberry Cheesecake",
+  "Rock ’n Pop Swirl",
+  "Reese’s Peanut Butter Cup",
+  "Trick Oreo Treat",
+  "Winter White Chocolate",
+  "made with Snickers®",
+  "made with M&M's®",
+  "Heath®",
+  "Mango Tango"
+]
 
-// const regionalFlavors = [
-//   "Pink Bubblegum",
-//   "Caramel Macchiato",
-//   "York Peppermint Pattie",
-//   "Cotton Candy",
-//   "Orange Sherbet",
-//   "Grape Ice",
-//   "Watermelon Ice",
-//   "Miami Vice Sorbet",
-//   "Splish Splash®",
-//   "Wild 'n Reckless Sherbet",
-//   "Lemon Custard",
-//   "Oregon Blackberry",
-//   "Bananas ‘n Strawberries",
-//   "Mississippi Mud",
-//   "Rum Raisin",
-//   "Creole Cream Cheese",
-//   "Chocolate Almond",
-//   "Fudge Brownie",
-//   "Banana Nut",
-//   "Black Walnut",
-//   "Cotton Candy Crackle",
-//   "Quarterback Crunch",
-//   "Chocolate Chocolate Chip Cheesecake",
-//   "Caramel 'n' Cookies"
-// ]
+const regionalFlavors = [
+  "Pink Bubblegum",
+  "Caramel Macchiato",
+  "York Peppermint Pattie",
+  "Cotton Candy",
+  "Orange Sherbet",
+  "Grape Ice",
+  "Watermelon Ice",
+  "Miami Vice Sorbet",
+  "Splish Splash®",
+  "Wild 'n Reckless Sherbet",
+  "Lemon Custard",
+  "Oregon Blackberry",
+  "Bananas ‘n Strawberries",
+  "Mississippi Mud",
+  "Rum Raisin",
+  "Creole Cream Cheese",
+  "Chocolate Almond",
+  "Fudge Brownie",
+  "Banana Nut",
+  "Black Walnut",
+  "Cotton Candy Crackle",
+  "Quarterback Crunch",
+  "Chocolate Chocolate Chip Cheesecake",
+  "Caramel 'n' Cookies"
+]
+
+function getRandomFlavors(anArray1, anArray2, anArray3, anArray4){
+  let combinedFlavors = anArray1.concat(anArray2, anArray3, anArray4);
+  let randomFlavors = [];
+  for(let i = 0; i < 31; i++) {
+    let randomFlavor = Math.floor(Math.random() * combinedFlavors.length);
+    randomFlavors.push(combinedFlavors[randomFlavor]);
+    combinedFlavors.pop(combinedFlavors[randomFlavor]);
+  }
+  return randomFlavors;
+}
+console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors));
+
+
 
 
 
